@@ -1,4 +1,4 @@
-#!/user/bin/env/ python3
+#!/user/bin/python3
 
 def islower(c):
     return ord(c) >= 97 and ord(c) <= 122
