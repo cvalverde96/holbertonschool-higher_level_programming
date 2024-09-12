@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-def add_integer(a, b=98):
-    """
-    anade dos integers o floats
+
+"""
+ anade dos integers o floats
     tenemos isinstance para validar que en efecto sea in o float
     de no ser asi, va raise el error correcto con su mensaje adecuado
-
+"""
+def add_integer(a, b=98):
+    """
     Args:
         a: primer numero
         b: segundo numero, le pusimos default 98
