@@ -1,4 +1,4 @@
-#!/def/usr/bin/python3
+#!/usr/bin/python3
 
 """
 divide todos los elementos en una matriz por division,
