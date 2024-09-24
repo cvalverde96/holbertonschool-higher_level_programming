@@ -1,10 +1,21 @@
 #!/usr/bin/python3
 
 """
+module que define una clase BaseGeometry
+contiene metodo que alza Exception
+y metodo para validar integer
 """
 
 
 class BaseGeometry():
+    """
+    Methods:
+    area(self):
+        alza exception que el area no ha sido implementado
+
+    integer_validator(self, name, value):
+        valida que el valor sea integer y mayor a zero
+    """
     def area(self):
         raise Exception("area() is not implemented")
 
