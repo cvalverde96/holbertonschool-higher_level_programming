@@ -1,4 +1,4 @@
-#!/usr/bin/class
+#!/usr/bin/python3
 
 """
 modulo contiene funcion que chequea si objeto es instancia
