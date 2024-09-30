@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-import json
 
 """
 function that returns the JSON representation of an object
 """
 
+import json
+
 
 def to_json_string(my_obj):
-    """_summary_
+    """
 
     Args:
         my_obj (_type_): object to be return as a JSON repr
