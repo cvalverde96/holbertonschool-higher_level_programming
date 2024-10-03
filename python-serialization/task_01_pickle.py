@@ -25,9 +25,14 @@ class CustomObject():
         try:
             with open(filename, "wb") as my_file:
                 pickle.dump(self, my_file)
-        except (FileNotFoundError, IOError):
-            return (None)
+        except Exception as error:
+            print(f"Error while serializing: {error}")
 
     @classmethod
     def deserialize(cls, filename):
-        pickle.loads(cls)
+        try:
+            with open(filename, "rb") as my_file:
+                return (pickle.load(my_file))
+        except (FileNotFoundError, pickle.UnpicklingError) as error:
+            print(f"Error while deserializing: {error}")
+            return (None)
