@@ -83,7 +83,16 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
         # luego de validar todos los ifs, si no reconocemos endpoint, 404 error
         else:
-            self.send_error(404, "Endpoint not found")
+
+            # para enviar status code not found
+            self.send_response(404)
+
+            # estos metodos son para enviar los headers, en text plain
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+
+            # enviando el mensaje como bytes utilizando wfile
+            self.wfile.write(b"Endpoint not found")
 
 
 # variable para declarar en que port vamos a estar escuchando
