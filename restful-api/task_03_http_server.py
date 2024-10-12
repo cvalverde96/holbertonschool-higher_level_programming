@@ -76,7 +76,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
             # estos metodos son para enviar los headers, en text plain
             self.send_header("Content-type", "text/plain")
-            self.send_headers()
+            self.end_headers()
 
             # queso
             self.wfile.write(b"OK")
