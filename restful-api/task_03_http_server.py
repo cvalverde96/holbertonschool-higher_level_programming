@@ -68,9 +68,22 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             # convierte el python dict an un json string y encodes
             self.wfile.write(json.dumps(info_data).encode("utf-8"))
 
+        # atributo para validar si el reqeusted path es /status
+        elif self.path == "/status":
+
+            # para enviar status code ok
+            self.send_response(200)
+
+            # estos metodos son para enviar los headers, en text plain
+            self.send_header("Content-type", "text/plain")
+            self.send_headers()
+
+            # queso
+            self.wfile.write(b"OK")
+
         # luego de validar todos los ifs, si no reconocemos endpoint, 404 error
         else:
-            self.send_error(404, "Endpoint not found: {}".format(self.path))
+            self.send_error(404, "Endpoint not found")
 
 
 # variable para declarar en que port vamos a estar escuchando
