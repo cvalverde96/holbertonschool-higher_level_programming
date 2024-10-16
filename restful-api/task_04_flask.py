@@ -35,13 +35,10 @@ def full_object(username):
 def add_user():
     new_user = request.get_json()
 
-    if "username" not in new_user:
-        return (jsonify({"error": "Username is required"}), 400)
+    username = new_user.get("username")
 
-    username = new_user["username"]
-    
-    if username in users:
-        return (jsonify({"error": "User with this username already exists"}), 400)
+    if not username:
+        return (jsonify({"error": "Username is required"}), 400)
 
     users[username] = new_user
 
