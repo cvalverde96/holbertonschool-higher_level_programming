@@ -16,7 +16,7 @@ users = {
 
 
 @auth.verify_password
-def ver_pass(username, password):
+def verify_password(username, password):
     if username in users and check_password_hash(users[username]["password"], password):
         return (username)
 
@@ -25,10 +25,6 @@ def ver_pass(username, password):
 @auth.login_required
 def basic_protected():
     return (jsonify(message="Basic Auth: Access Granted"))
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
 
 
 app.config["JWT_SECRET_KEY"] = "super-secret-key"
@@ -86,3 +82,7 @@ def handle_revoked_token_error(err):
 @jwt.needs_fresh_token_loader
 def handle_needs_fresh_token_error(err):
     return (jsonify({"error": "Fresh token required"}), 401)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
