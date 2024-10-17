@@ -15,6 +15,11 @@ users = {
 }
 
 
+@auth.error_handler
+def unauthorized():
+    return (jsonify({"error": "Unauthorized"}), 401)
+
+
 @auth.verify_password
 def verify_password(username, password):
     if username in users and check_password_hash(users[username]["password"], password):
