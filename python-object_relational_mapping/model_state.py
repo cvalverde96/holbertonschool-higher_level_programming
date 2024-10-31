@@ -6,7 +6,7 @@ of a State and an instance Base = declarative_base()
 """
 
 import sys
-from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -25,12 +25,12 @@ class State(Base):
 
 if __name__ == "__main__":
 
-    mysql_username = sys.argv[1]
-    mysql_password = sys.argv[2]
+    username = sys.argv[1]
+    password = sys.argv[2]
     db_name = sys.argv[3]
 
     engine = create_engine(
-        f"mysql+mysqldb://{mysql_username}:{mysql_password}@localhost:3306/{db_name}",
+        f"mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}",
         pool_pre_ping=True
     )
 
