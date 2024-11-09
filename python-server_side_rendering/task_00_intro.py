@@ -6,7 +6,7 @@ def generate_invitations(template, attendees):
         print("Error: Template should be a string.")
         return
     
-    if not isinstance(attendees, list) or not all(isinstance(attendees, dict) for attendee in attendees):
+    if not isinstance(attendees, list) or not all(isinstance(attendee, dict) for attendee in attendees):
         print("Error: Attendees should be a list of dictionaries.")
         return
     
@@ -25,14 +25,14 @@ def generate_invitations(template, attendees):
             event_location=attendee.get("event_location", "N/A")
         )
         
-    output_filename = f"output_{index}.txt"
-    
-    if os.path.exists(output_filename):
-        print(f"Warning: {output_filename} already exists. It will be overwritten.")
+        output_filename = f"output_{index}.txt"
         
-    try:
-        with open(output_filename, "w") as file:
-            file.write(invitation)
-        print(f"Generated invitation: {output_filename}")
-    except Exception as e:
-        print(f"Error writing file {output_filename}: {e}")
+        if os.path.exists(output_filename):
+            print(f"Warning: {output_filename} already exists. It will be overwritten.")
+        
+        try:
+            with open(output_filename, "w") as file:
+                file.write(invitation)
+            print(f"Generated invitation: {output_filename}")
+        except Exception as e:
+            print(f"Error writing file {output_filename}: {e}")
